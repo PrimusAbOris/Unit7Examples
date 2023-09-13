@@ -28,9 +28,10 @@ public class RegExApplication {
 		inputMatchesRegExPattern("Trevor@CraftyCodr.com");
 	}
 
-	private static void inputMatchesRegExPattern(String input) {
+	public static void inputMatchesRegExPattern(String input) {
 		boolean matchFound = input.matches("^[a-zA-Z0-9][a-zA-Z0-9-]{0,}\\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{1,5}$");
-		System.out.println("For Input " + input + ", match found = " + matchFound);
+		if (!matchFound) System.out.println(input + " don't look like NO email address to me, baby!");
+		else System.out.println(input + ", yeah? I'll drop you a line!");
 	}
 
 }
