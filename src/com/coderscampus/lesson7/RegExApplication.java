@@ -26,10 +26,17 @@ public class RegExApplication {
 		inputMatchesRegExPattern("trevor-page.2@gmail.com");
 		// valid
 		inputMatchesRegExPattern("Trevor@CraftyCodr.com");
+		// valid
+		inputMatchesRegExPattern("0123@0123.abc");
+		// invalid (domain extension has numbers)
+		inputMatchesRegExPattern("dondozo-fan-99@paldea.123");
 	}
 
 	public static void inputMatchesRegExPattern(String input) {
+		// Refactor -> Extract Method
 		boolean matchFound = input.matches("^[a-zA-Z0-9][a-zA-Z0-9-]{0,}\\.?[a-zA-Z0-9]+@[a-zA-Z0-9]+\\.[a-zA-Z]{1,5}$");
+        //                                  ^ "from the start"    ^ minus sign, not a range indicator                ^ "must end like this"
+		//  "." != .   "\." == .   like \n     . is a RegEx wild card    \ == "escape character"
 		if (!matchFound) System.out.println(input + " don't look like NO email address to me, baby!");
 		else System.out.println(input + ", yeah? I'll drop you a line!");
 	}
